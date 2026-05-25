@@ -190,7 +190,7 @@ body {
 }
 
 .phase-name {
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: "Times New Roman", serif;
   font-size: 0.95rem;
   color: var(--gold);
   font-weight: 800;
@@ -338,7 +338,7 @@ body {
 }
 
 .panel-header {
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: "Times New Roman", serif;
   font-size: 1rem;
   color: var(--gold);
   margin-bottom: 1rem;
@@ -616,7 +616,7 @@ body {
 
 .btn-primary {
   background: var(--gold);
-  color: #fcaa27;
+  color: #1b1306;
   box-shadow: 0 4px 15px var(--accent-glow);
 }
 
@@ -662,7 +662,7 @@ body {
   font-size: 3rem;
 }
 .pb-right h3 {
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: "Times New Roman", serif;
   color: var(--gold);
   font-size: 1.2rem;
   margin-bottom: 0.3rem;

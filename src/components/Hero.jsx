@@ -18,19 +18,19 @@ export default function Hero() {
           </div>
 
           <h1 className="text-5xl font-bold tracking-tight md:text-7xl">
-            Quá trình hình thành{" "}
-            <span className="text-yellow-500">triết học</span>
+            Sự ra đời và phát triển của{" "}
+            <span className="text-yellow-500">Triết học Mác – Lênin</span>
           </h1>
 
           <p className="mt-6 max-w-2xl text-lg leading-8 text-stone-600">
-            Từ những câu chuyện thần thoại đầu tiên đến tư duy lý tính, triết
-            học ra đời như hành trình con người đi tìm bản chất của thế giới và
-            chính mình.
+            Tìm hiểu điều kiện lịch sử, nguồn gốc lý luận, tiền đề khoa học tự
+            nhiên, nhân tố chủ quan và các giai đoạn phát triển của triết học
+            Mác dưới thời Marx, Engels và Lenin.
           </p>
 
           <blockquote className="mt-8 rounded-3xl border-l-4 border-yellow-400 bg-stone-50 p-6 text-xl font-medium italic text-stone-700">
-            “Triết học bắt đầu khi con người không chỉ tin, mà còn biết đặt câu
-            hỏi.”
+            “Triết học Mác ra đời từ sự kết hợp giữa thực tiễn đấu tranh xã hội,
+            thành tựu khoa học và tinh hoa tư tưởng nhân loại.”
           </blockquote>
 
           <div className="mt-8 flex flex-wrap gap-4">
@@ -56,17 +56,22 @@ export default function Hero() {
         >
           <div className="rounded-[2rem] border border-yellow-200 bg-gradient-to-br from-yellow-50 to-white p-8 shadow-2xl">
             <div className="grid grid-cols-2 gap-4">
-              {["Mythos", "Logos", "Reason", "Wisdom"].map((word, i) => (
+              {[
+                ["1840s", "Điều kiện lịch sử", "🏭"],
+                ["Marx & Engels", "Hình thành học thuyết", "📕"],
+                ["Khoa học", "Tiền đề tự nhiên", "🔬"],
+                ["Lenin", "Phát triển lý luận", "🚩"],
+              ].map(([label, title, icon], i) => (
                 <div
-                  key={word}
+                  key={title}
                   className={`rounded-3xl p-6 shadow-sm ${i === 1 ? "bg-stone-950 text-white" : "bg-white"}`}
                 >
-                  <p className="text-3xl">{["☀️", "🧠", "📜", "🏛️"][i]}</p>
-                  <p className="mt-5 text-lg font-bold">{word}</p>
+                  <p className="text-3xl">{icon}</p>
+                  <p className="mt-5 text-lg font-bold">{label}</p>
                   <p
                     className={`mt-2 text-sm ${i === 1 ? "text-stone-300" : "text-stone-500"}`}
                   >
-                    Một lớp phát triển của tư duy con người.
+                    {title}
                   </p>
                 </div>
               ))}

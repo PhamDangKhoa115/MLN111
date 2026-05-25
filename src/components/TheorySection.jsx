@@ -1,21 +1,43 @@
-import { BookOpen, Brain, Compass } from "lucide-react";
+import {
+  BookOpen,
+  Brain,
+  Compass,
+  Factory,
+  Microscope,
+  Users,
+} from "lucide-react";
 
 export default function TheorySection() {
   const theoryCards = [
     [
+      Factory,
+      "Điều kiện kinh tế - xã hội",
+      "Những năm 40 của thế kỷ XIX, chủ nghĩa tư bản Tây Âu phát triển mạnh dưới tác động của cách mạng công nghiệp. Sự xuất hiện của giai cấp tư sản và vô sản làm mâu thuẫn giai cấp ngày càng gay gắt.",
+    ],
+    [
       BookOpen,
-      "Nguồn gốc nhận thức",
-      "Con người cần lý giải tự nhiên, xã hội và vị trí của mình trong thế giới.",
+      "Nguồn gốc lý luận",
+      "Triết học Mác kế thừa kinh tế chính trị học cổ điển Anh, chủ nghĩa xã hội không tưởng Pháp và triết học cổ điển Đức, đặc biệt là Hegel và Feuerbach.",
+    ],
+    [
+      Microscope,
+      "Tiền đề khoa học tự nhiên",
+      "Học thuyết tiến hóa, học thuyết tế bào, định luật bảo toàn và chuyển hóa năng lượng chứng minh tính thống nhất vật chất của thế giới.",
+    ],
+    [
+      Users,
+      "Nhân tố chủ quan",
+      "Marx và Engels có tri thức sâu rộng, gắn bó với phong trào công nhân và xây dựng lý luận nhằm giúp giai cấp công nhân nhận thức, cải tạo xã hội.",
     ],
     [
       Brain,
-      "Tư duy lý tính",
-      "Thay vì chỉ dựa vào niềm tin, con người bắt đầu dùng lý trí để tìm nguyên nhân.",
+      "Các giai đoạn hình thành",
+      "Từ 1841 đến 1895, Marx và Engels chuyển từ duy tâm sang duy vật, từ dân chủ cách mạng sang chủ nghĩa cộng sản và hoàn thiện hệ thống triết học Mác.",
     ],
     [
       Compass,
-      "Khát vọng chân lý",
-      "Triết học hướng đến câu hỏi lớn: thế giới là gì, con người là ai, sống thế nào là đúng?",
+      "Sự phát triển dưới thời Lenin",
+      "Lenin bảo vệ, phát triển triết học Mác trong bối cảnh chủ nghĩa tư bản chuyển sang chủ nghĩa đế quốc và cách mạng thế giới chuyển trọng tâm sang Nga.",
     ],
   ];
 
@@ -27,12 +49,13 @@ export default function TheorySection() {
             Theory
           </p>
           <h2 className="text-4xl font-bold tracking-tight md:text-5xl">
-            Giải thích lý thuyết
+            Cơ sở ra đời của Triết học Mác – Lênin
           </h2>
           <p className="mt-4 text-stone-600">
-            Triết học không xuất hiện đột ngột. Nó hình thành khi con người
-            chuyển từ cách giải thích thế giới bằng huyền thoại sang cách suy
-            nghĩ có lý luận, có quan sát và có phản biện.
+            Triết học Mác không xuất hiện ngẫu nhiên, mà ra đời từ những điều
+            kiện lịch sử cụ thể: sự phát triển của chủ nghĩa tư bản, phong trào
+            đấu tranh của giai cấp vô sản, các nguồn tư tưởng tiến bộ và thành
+            tựu khoa học tự nhiên thế kỷ XIX.
           </p>
         </div>
 

@@ -2,65 +2,81 @@ import { useEffect, useRef, useState } from "react";
 
 const ERAS = [
   {
-    badge: "Màn 1",
-    name: "Thần thoại",
-    year: "3000 TCN",
-    goal: "Thu thập các mảnh nghi vấn để mở đường sang tư duy tự nhiên.",
-    world: "Bộ lạc cổ đại",
-    quote: "Khi chưa có lý trí, con người giải thích thế giới bằng thần linh.",
-    reasonNext:
-      "Khi con người không còn chỉ chấp nhận huyền thoại, họ bắt đầu quan sát tự nhiên và đặt câu hỏi. Đây là bước chuyển từ Mythos sang tư duy tìm nguyên nhân.",
-    bg: ["#130f0a", "#4a2d12", "#19140d"],
-    items: ["❓", "🌩️", "🔥", "🌙", "👁️", "🪨"],
-  },
-  {
-    badge: "Màn 2",
-    name: "Quan sát Tự nhiên",
-    year: "600 TCN",
-    goal: "Thu thập các yếu tố tự nhiên để tìm bản nguyên của thế giới.",
-    world: "Bờ biển Hy Lạp",
-    quote: "Triết học bắt đầu khi con người hỏi: mọi thứ bắt nguồn từ đâu?",
-    reasonNext:
-      "Từ việc quan sát nước, lửa, khí, đất và sự biến đổi của vũ trụ, con người dần nhận ra thế giới có thể được giải thích bằng quy luật thay vì thần thoại.",
-    bg: ["#17324d", "#d6b36a", "#274c3b"],
-    items: ["🌊", "🔥", "🌬️", "🌱", "☀️", "🪐"],
-  },
-  {
-    badge: "Màn 3",
-    name: "Lý tính",
-    year: "450 TCN",
-    goal: "Thu thập các biểu tượng lý trí để vượt qua niềm tin mơ hồ.",
-    world: "Quảng trường Athens",
-    quote: "Logos thay thế Mythos — lý trí thay thế huyền thoại.",
-    reasonNext:
-      "Khi lý trí phát triển, con người không chỉ quan sát mà còn biết lập luận, so sánh đúng sai và xây dựng khái niệm. Tư duy triết học trở nên rõ ràng hơn.",
-    bg: ["#24212b", "#c4a86a", "#5b5140"],
-    items: ["🧠", "📜", "⚖️", "🕯️", "🔎", "🧩"],
-  },
-  {
-    badge: "Màn 4",
-    name: "Đối thoại Socrates",
-    year: "400 TCN",
-    goal: "Thu thập các biểu tượng đối thoại để hình thành tư duy phản biện.",
-    world: "Học viện cổ đại",
-    quote: "Một cuộc đời không được suy xét thì không đáng sống.",
-    reasonNext:
-      "Đối thoại và phản biện giúp tư duy cá nhân trở thành hoạt động học thuật. Triết học không còn là suy nghĩ riêng lẻ mà trở thành quá trình tranh luận để tìm chân lý.",
-    bg: ["#121826", "#8e7a52", "#2d3040"],
-    items: ["💬", "👥", "❔", "🗣️", "📣", "🧑‍🏫"],
-  },
-  {
-    badge: "Màn 5",
-    name: "Triết học Hình thành",
-    year: "300 TCN",
-    goal: "Thu thập các biểu tượng tri thức để hoàn thành hành trình triết học.",
-    world: "Đền tri thức",
+    badge: "Giai đoạn 1",
+    name: "Điều kiện kinh tế - xã hội",
+    year: "1840s",
+    goal: "Thu thập các yếu tố kinh tế và xã hội dẫn đến sự ra đời của triết học Mác.",
+    world: "Châu Âu thời cách mạng công nghiệp",
     quote:
-      "Triết học ra đời khi con người biết suy nghĩ về chính tư duy của mình.",
+      "Sự phát triển của chủ nghĩa tư bản làm xuất hiện những mâu thuẫn giai cấp sâu sắc.",
     reasonNext:
-      "Khi tri thức được hệ thống hóa thành phạm trù, khái niệm và trường phái, triết học chính thức hình thành như nền tảng cho khoa học, đạo đức và chính trị.",
-    bg: ["#fff3bd", "#d9b65f", "#6b4e16"],
-    items: ["📚", "🏛️", "✨", "📖", "🌟", "🧭"],
+      "Khi giai cấp vô sản trở thành lực lượng chính trị độc lập, họ cần một hệ thống lý luận khoa học để định hướng phong trào cách mạng. Điều này mở đường cho sự hình thành của triết học Mác.",
+    bg: ["#1a120f", "#6e4b2b", "#24170f"],
+    items: ["🏭", "⚒️", "👷", "💰", "📈", "🔥"],
+  },
+  {
+    badge: "Giai đoạn 2",
+    name: "Nguồn gốc lý luận",
+    year: "1840s",
+    goal: "Thu thập các nguồn tư tưởng làm nền tảng cho triết học Mác.",
+    world: "Không gian học thuật châu Âu",
+    quote: "Triết học Mác kế thừa tinh hoa tư tưởng của nhân loại.",
+    reasonNext:
+      "Marx và Engels đã tiếp thu kinh tế chính trị học Anh, chủ nghĩa xã hội không tưởng Pháp và triết học cổ điển Đức để xây dựng nền tảng lý luận mới.",
+    bg: ["#1b2230", "#c9a15b", "#2f3f52"],
+    items: ["📚", "🧠", "📜", "⚖️", "🏛️", "✒️"],
+  },
+  {
+    badge: "Giai đoạn 3",
+    name: "Tiền đề khoa học tự nhiên",
+    year: "Thế kỷ XIX",
+    goal: "Thu thập các thành tựu khoa học làm nền tảng cho thế giới quan duy vật.",
+    world: "Phòng nghiên cứu khoa học",
+    quote:
+      "Các học thuyết khoa học chứng minh tính thống nhất vật chất của thế giới.",
+    reasonNext:
+      "Những thành tựu như học thuyết tiến hóa, học thuyết tế bào và định luật bảo toàn năng lượng đã củng cố cơ sở khoa học cho triết học Mác.",
+    bg: ["#10202c", "#9ab7c9", "#243643"],
+    items: ["🧬", "🔬", "⚡", "🌍", "🧪", "☄️"],
+  },
+  {
+    badge: "Giai đoạn 4",
+    name: "Nhân tố chủ quan",
+    year: "1841 - 1848",
+    goal: "Thu thập các yếu tố về Marx và Engels trong quá trình xây dựng học thuyết.",
+    world: "Phong trào công nhân châu Âu",
+    quote:
+      "Marx và Engels đã kết hợp lý luận với thực tiễn đấu tranh cách mạng.",
+    reasonNext:
+      "Từ việc tham gia phong trào công nhân, Marx và Engels dần xây dựng hệ thống lý luận giúp giai cấp công nhân nhận thức và cải tạo xã hội.",
+    bg: ["#231824", "#8f6b76", "#352635"],
+    items: ["🧔", "🤝", "🪧", "📖", "⚒️", "🧑‍🏫"],
+  },
+  {
+    badge: "Giai đoạn 5",
+    name: "Hình thành và phát triển",
+    year: "1848 - 1895",
+    goal: "Thu thập các giai đoạn phát triển của triết học Mác.",
+    world: "Hệ thống lý luận Mác",
+    quote:
+      "Triết học Mác được hoàn thiện thông qua quá trình phát triển lý luận và thực tiễn.",
+    reasonNext:
+      "Từ 1841 đến 1895, Marx và Engels đã chuyển từ chủ nghĩa duy tâm sang duy vật và xây dựng hoàn chỉnh chủ nghĩa duy vật biện chứng cùng chủ nghĩa duy vật lịch sử.",
+    bg: ["#1b1b1b", "#b88b4a", "#3a2a16"],
+    items: ["📕", "🧩", "🏛️", "📘", "✊", "🕰️"],
+  },
+  {
+    badge: "Giai đoạn 6",
+    name: "Triết học Mác dưới thời Lenin",
+    year: "1893 - nay",
+    goal: "Thu thập các yếu tố thể hiện sự phát triển của triết học Mác – Lênin.",
+    world: "Nga và phong trào cách mạng thế giới",
+    quote:
+      "Lenin bảo vệ và phát triển triết học Mác trong thời đại chủ nghĩa đế quốc.",
+    reasonNext:
+      "Lenin đã phát triển triết học Mác thông qua việc giải thích mối quan hệ giữa vật chất và ý thức, đồng thời vận dụng lý luận vào cách mạng xã hội chủ nghĩa.",
+    bg: ["#260d0d", "#b34f3f", "#401616"],
+    items: ["⭐", "📕", "🚩", "⚙️", "🧠", "🌍"],
   },
 ];
 
@@ -447,8 +463,8 @@ export default function PhilosophyGame() {
             <div className="intro-card">
               <h3>✨ Nhiệm vụ</h3>
               <p>
-                Mỗi màn sẽ có những vật phẩm tri thức. Hãy thu thập đủ để sang
-                màn tiếp theo.
+                Mỗi màn có 3 vật phẩm tri thức. Thu thập đủ để sang màn tiếp
+                theo.
               </p>
             </div>
             <div className="intro-card">
@@ -697,7 +713,7 @@ export default function PhilosophyGame() {
       {tutorialOpen && (
         <div className="tutorial-overlay">
           <div className="tutorial-box">
-            <div className="tut-avatar">🐱</div>
+            <div className="tut-avatar">🦉</div>
             <div className="tut-content">
               <h3>Hướng dẫn</h3>
               <p>
