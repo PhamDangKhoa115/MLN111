@@ -13,10 +13,6 @@ export default function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7 }}
         >
-          <div className="mb-6 inline-flex items-center rounded-full border border-yellow-200 bg-yellow-50 px-4 py-2 text-sm font-medium text-yellow-700">
-            <Sparkles className="mr-2 h-4 w-4" /> Website học thuật tương tác
-          </div>
-
           <h1 className="text-5xl font-bold tracking-tight md:text-7xl">
             Sự ra đời và phát triển của{" "}
             <span className="text-yellow-500">Triết học Mác – Lênin</span>
