@@ -12,7 +12,14 @@ const ERAS = [
     reasonNext:
       "Khi giai cấp vô sản trở thành lực lượng chính trị độc lập, họ cần một hệ thống lý luận khoa học để định hướng phong trào cách mạng. Điều này mở đường cho sự hình thành của triết học Mác.",
     bg: ["#1a120f", "#6e4b2b", "#24170f"],
-    items: ["🏭", "⚒️", "👷", "💰", "📈", "🔥"],
+    items: [
+      { icon: "🏭", label: "Cách mạng công nghiệp" },
+      { icon: "👷", label: "Giai cấp vô sản" },
+      { icon: "💰", label: "Giai cấp tư sản" },
+      { icon: "⚒️", label: "Đấu tranh giai cấp" },
+      { icon: "📈", label: "Chủ nghĩa tư bản" },
+      { icon: "🔥", label: "Mâu thuẫn xã hội" },
+    ],
   },
   {
     badge: "Giai đoạn 2",
@@ -24,12 +31,19 @@ const ERAS = [
     reasonNext:
       "Marx và Engels đã tiếp thu kinh tế chính trị học Anh, chủ nghĩa xã hội không tưởng Pháp và triết học cổ điển Đức để xây dựng nền tảng lý luận mới.",
     bg: ["#1b2230", "#c9a15b", "#2f3f52"],
-    items: ["📚", "🧠", "📜", "⚖️", "🏛️", "✒️"],
+    items: [
+      { icon: "📚", label: "Kinh tế chính trị Anh" },
+      { icon: "🧠", label: "Triết học Đức" },
+      { icon: "📜", label: "Hegel" },
+      { icon: "⚖️", label: "Feuerbach" },
+      { icon: "🏛️", label: "CNXH không tưởng Pháp" },
+      { icon: "✒️", label: "Tinh hoa tư tưởng nhân loại" },
+    ],
   },
   {
     badge: "Giai đoạn 3",
     name: "Tiền đề khoa học tự nhiên",
-    year: "Thế kỷ XIX",
+    year: "1940s",
     goal: "Thu thập các thành tựu khoa học làm nền tảng cho thế giới quan duy vật.",
     world: "Phòng nghiên cứu khoa học",
     quote:
@@ -37,7 +51,14 @@ const ERAS = [
     reasonNext:
       "Những thành tựu như học thuyết tiến hóa, học thuyết tế bào và định luật bảo toàn năng lượng đã củng cố cơ sở khoa học cho triết học Mác.",
     bg: ["#10202c", "#9ab7c9", "#243643"],
-    items: ["🧬", "🔬", "⚡", "🌍", "🧪", "☄️"],
+    items: [
+      { icon: "🧬", label: "Học thuyết tiến hóa" },
+      { icon: "🔬", label: "Học thuyết tế bào" },
+      { icon: "⚡", label: "Bảo toàn năng lượng" },
+      { icon: "🌍", label: "Thống nhất vật chất" },
+      { icon: "🧪", label: "Khoa học tự nhiên" },
+      { icon: "☄️", label: "Vật chất và vận động" },
+    ],
   },
   {
     badge: "Giai đoạn 4",
@@ -50,7 +71,14 @@ const ERAS = [
     reasonNext:
       "Từ việc tham gia phong trào công nhân, Marx và Engels dần xây dựng hệ thống lý luận giúp giai cấp công nhân nhận thức và cải tạo xã hội.",
     bg: ["#231824", "#8f6b76", "#352635"],
-    items: ["🧔", "🤝", "🪧", "📖", "⚒️", "🧑‍🏫"],
+    items: [
+      { icon: "🧔", label: "Karl Marx" },
+      { icon: "🤝", label: "Friedrich Engels" },
+      { icon: "🪧", label: "Phong trào công nhân" },
+      { icon: "📖", label: "Tri thức sâu rộng" },
+      { icon: "⚒️", label: "Thực tiễn đấu tranh" },
+      { icon: "🧑‍🏫", label: "Lý luận cách mạng" },
+    ],
   },
   {
     badge: "Giai đoạn 5",
@@ -63,7 +91,14 @@ const ERAS = [
     reasonNext:
       "Từ 1841 đến 1895, Marx và Engels đã chuyển từ chủ nghĩa duy tâm sang duy vật và xây dựng hoàn chỉnh chủ nghĩa duy vật biện chứng cùng chủ nghĩa duy vật lịch sử.",
     bg: ["#1b1b1b", "#b88b4a", "#3a2a16"],
-    items: ["📕", "🧩", "🏛️", "📘", "✊", "🕰️"],
+    items: [
+      { icon: "🧠", label: "Duy tâm sang duy vật" },
+      { icon: "🚩", label: "Dân chủ sang cộng sản" },
+      { icon: "📕", label: "Duy vật biện chứng" },
+      { icon: "📘", label: "Duy vật lịch sử" },
+      { icon: "🕰️", label: "1841–1844" },
+      { icon: "🏛️", label: "1848–1895" },
+    ],
   },
   {
     badge: "Giai đoạn 6",
@@ -76,7 +111,14 @@ const ERAS = [
     reasonNext:
       "Lenin đã phát triển triết học Mác thông qua việc giải thích mối quan hệ giữa vật chất và ý thức, đồng thời vận dụng lý luận vào cách mạng xã hội chủ nghĩa.",
     bg: ["#260d0d", "#b34f3f", "#401616"],
-    items: ["⭐", "📕", "🚩", "⚙️", "🧠", "🌍"],
+    items: [
+      { icon: "⭐", label: "Chủ nghĩa đế quốc" },
+      { icon: "📕", label: "Duy vật và kinh nghiệm phê phán" },
+      { icon: "🚩", label: "Cách mạng Nga" },
+      { icon: "⚙️", label: "Vật chất và ý thức" },
+      { icon: "🧠", label: "Bảo vệ chủ nghĩa Mác" },
+      { icon: "🌍", label: "Phong trào công nhân thế giới" },
+    ],
   },
 ];
 
@@ -88,18 +130,28 @@ const shuffle = (array) => [...array].sort(() => Math.random() - 0.5);
 const makeCollectibles = (eraIndex, canvas, amount) => {
   const W = canvas?.width || 900;
   const H = canvas?.height || 600;
-  const icons = shuffle(ERAS[eraIndex].items).slice(0, amount);
+  const selectedItems = shuffle(ERAS[eraIndex].items).slice(0, amount);
 
-  return icons.map((icon, index) => ({
+  return selectedItems.map((item, index) => ({
     id: `${eraIndex}-${index}-${Date.now()}`,
-    icon,
+    icon: item.icon,
+    label: item.label,
     x: randomBetween(W * 0.18, W * 0.82),
     y: randomBetween(H * 0.22, H * 0.78),
     taken: false,
   }));
 };
 
-function drawWorld(ctx, canvas, eraIndex, player, collectibles, sparks) {
+function drawWorld(
+  ctx,
+  canvas,
+  eraIndex,
+  player,
+  collectibles,
+  sparks,
+  moving,
+  direction,
+) {
   const W = canvas.width;
   const H = canvas.height;
   const era = ERAS[eraIndex];
@@ -155,15 +207,19 @@ function drawWorld(ctx, canvas, eraIndex, player, collectibles, sparks) {
     ctx.shadowColor = "#ffd166";
     ctx.font = "42px serif";
     ctx.textAlign = "center";
-    ctx.fillText(
-      item.icon,
-      item.x,
-      item.y + Math.sin(Date.now() * 0.004 + item.x) * 6,
-    );
+    const floating = Math.sin(Date.now() * 0.004 + item.x) * 6;
+    ctx.fillText(item.icon, item.x, item.y + floating);
+
+    ctx.font = "bold 13px Inter";
+    ctx.fillStyle = "#fff7d6";
+    ctx.strokeStyle = "rgba(0,0,0,0.65)";
+    ctx.lineWidth = 4;
+    ctx.strokeText(item.label, item.x, item.y - 34 + floating);
+    ctx.fillText(item.label, item.x, item.y - 34 + floating);
     ctx.restore();
   });
 
-  drawPlayer(ctx, player.x, player.y);
+  drawPlayer(ctx, player.x, player.y, moving, direction);
 
   ctx.font = "42px serif";
   ctx.fillText("🐱", W * 0.88, H * 0.76);
@@ -219,17 +275,96 @@ function drawCitizen(ctx, x, y, i, eraIndex) {
   ctx.fillText(people[i % people.length], x, y + 40);
 }
 
-function drawPlayer(ctx, x, y) {
+function drawPlayer(ctx, x, y, moving, direction = "right") {
+  const time = Date.now() * 0.012;
+
+  const bob = moving ? Math.sin(time * 1.4) * 4 : Math.sin(time * 0.5) * 1.5;
+
+  const legSwing = moving ? Math.sin(time * 1.8) * 8 : 0;
+
+  const armSwing = moving ? Math.sin(time * 1.8) * 6 : 0;
+
   ctx.save();
-  ctx.fillStyle = "rgba(0,0,0,0.3)";
+
+  // Flip character
+  if (direction === "left") {
+    ctx.translate(x + 45, 0);
+    ctx.scale(-1, 1);
+    x = 0;
+  }
+
+  // Shadow
+  ctx.fillStyle = "rgba(0,0,0,0.28)";
   ctx.beginPath();
-  ctx.ellipse(x + 18, y + 48, 22, 8, 0, 0, Math.PI * 2);
+  ctx.ellipse(x + 22, y + 56, 22, 7, 0, 0, Math.PI * 2);
   ctx.fill();
-  ctx.font = "46px serif";
-  ctx.fillText("🧙", x, y + 42);
+
+  // Cloak
+  ctx.fillStyle = "#5b3b16";
+  ctx.beginPath();
+  ctx.roundRect(x + 8, y + 18 + bob, 28, 34, 12);
+  ctx.fill();
+
+  // Head
+  ctx.fillStyle = "#f1c27d";
+  ctx.beginPath();
+  ctx.arc(x + 22, y + 11 + bob, 11, 0, Math.PI * 2);
+  ctx.fill();
+
+  // Hood
+  ctx.fillStyle = "#2f1b0c";
+  ctx.beginPath();
+  ctx.arc(x + 22, y + 7 + bob, 13, Math.PI, Math.PI * 2);
+  ctx.fill();
+
+  // Left arm
+  ctx.strokeStyle = "#2f1b0c";
+  ctx.lineWidth = 4;
+  ctx.lineCap = "round";
+
+  ctx.beginPath();
+  ctx.moveTo(x + 12, y + 28 + bob);
+  ctx.lineTo(x + 6 - armSwing, y + 42 + bob);
+  ctx.stroke();
+
+  // Right arm
+  ctx.beginPath();
+  ctx.moveTo(x + 33, y + 28 + bob);
+  ctx.lineTo(x + 38 + armSwing, y + 42 + bob);
+  ctx.stroke();
+
+  // Left leg
+  ctx.beginPath();
+  ctx.moveTo(x + 16, y + 50 + bob);
+  ctx.lineTo(x + 12 + legSwing, y + 66);
+  ctx.stroke();
+
+  // Right leg
+  ctx.beginPath();
+  ctx.moveTo(x + 28, y + 50 + bob);
+  ctx.lineTo(x + 32 - legSwing, y + 66);
+  ctx.stroke();
+
+  // Staff
+  ctx.strokeStyle = "#d6a84f";
+  ctx.lineWidth = 3;
+
+  ctx.beginPath();
+  ctx.moveTo(x + 39, y + 16 + bob);
+  ctx.lineTo(x + 44, y + 60);
+  ctx.stroke();
+
+  // Glow orb
+  ctx.shadowBlur = 14;
+  ctx.shadowColor = "#ffd166";
+  ctx.fillStyle = "#ffd166";
+
+  ctx.beginPath();
+  ctx.arc(x + 39, y + 12 + bob, 4, 0, Math.PI * 2);
+  ctx.fill();
+
   ctx.restore();
 }
-
 export default function PhilosophyGame() {
   const canvasRef = useRef(null);
   const playerRef = useRef({ x: 120, y: 260, speed: 4 });
@@ -335,7 +470,7 @@ export default function PhilosophyGame() {
           });
           setLogs((prev) =>
             [
-              `[${era.year}] ${item.icon} Đã thu thập mảnh tri thức.`,
+              `[${era.year}] ${item.icon} Thu thập: ${item.label}.`,
               ...prev,
             ].slice(0, 8),
           );
@@ -381,6 +516,19 @@ export default function PhilosophyGame() {
         .map((p) => ({ ...p, y: p.y - 1.2, life: p.life - 0.012 }))
         .filter((p) => p.life > 0);
 
+      const moving =
+        keysRef.current.arrowleft ||
+        keysRef.current.arrowright ||
+        keysRef.current.arrowup ||
+        keysRef.current.arrowdown ||
+        keysRef.current.a ||
+        keysRef.current.d ||
+        keysRef.current.w ||
+        keysRef.current.s;
+
+      const direction =
+        keysRef.current.arrowleft || keysRef.current.a ? "left" : "right";
+
       drawWorld(
         ctx,
         canvas,
@@ -388,6 +536,8 @@ export default function PhilosophyGame() {
         playerRef.current,
         collectiblesRef.current,
         particlesRef.current,
+        moving,
+        direction,
       );
       frame = requestAnimationFrame(loop);
     };
@@ -463,7 +613,7 @@ export default function PhilosophyGame() {
             <div className="intro-card">
               <h3>✨ Nhiệm vụ</h3>
               <p>
-                Mỗi màn có 3 vật phẩm tri thức. Thu thập đủ để sang màn tiếp
+                Mỗi màn có những vật phẩm tri thức. Thu thập đủ để sang màn tiếp
                 theo.
               </p>
             </div>
