@@ -126,6 +126,25 @@ const randomBetween = (min, max) =>
   Math.floor(Math.random() * (max - min + 1)) + min;
 
 const shuffle = (array) => [...array].sort(() => Math.random() - 0.5);
+const isTooCloseToPlayer = (x, y, player, minDistance = 150) => {
+  const dx = player.x + 20 - x;
+  const dy = player.y + 30 - y;
+  return Math.sqrt(dx * dx + dy * dy) < minDistance;
+};
+
+const getSafeRandomPosition = (W, H, player) => {
+  let x;
+  let y;
+  let tries = 0;
+
+  do {
+    x = randomBetween(W * 0.18, W * 0.82);
+    y = randomBetween(H * 0.22, H * 0.78);
+    tries++;
+  } while (isTooCloseToPlayer(x, y, player) && tries < 50);
+
+  return { x, y };
+};
 const WRONG_ITEMS = [
   { icon: "😴", label: "Lười lắm hong học đâu" },
   { icon: "😨", label: "Sợ triết học lắm" },
@@ -133,37 +152,43 @@ const WRONG_ITEMS = [
   { icon: "📵", label: "Bỏ qua lý luận" },
   { icon: "🫠", label: "Triết học khó quá" },
 ];
-const makeCollectibles = (eraIndex, canvas, amount) => {
+const makeCollectibles = (eraIndex, canvas, amount, player) => {
   const W = canvas?.width || 900;
   const H = canvas?.height || 600;
   const selectedItems = shuffle(ERAS[eraIndex].items).slice(0, amount);
 
-  return selectedItems.map((item, index) => ({
-    id: `${eraIndex}-${index}-${Date.now()}`,
-    icon: item.icon,
-    label: item.label,
-    x: randomBetween(W * 0.18, W * 0.82),
-    y: randomBetween(H * 0.22, H * 0.78),
-    taken: false,
-    type: "correct",
-  }));
+  return selectedItems.map((item, index) => {
+    const pos = getSafeRandomPosition(W, H, player);
+
+    return {
+      id: `correct-${eraIndex}-${index}-${Date.now()}`,
+      icon: item.icon,
+      label: item.label,
+      x: pos.x,
+      y: pos.y,
+      taken: false,
+      type: "correct",
+    };
+  });
 };
-const makeWrongItems = (canvas) => {
+const makeWrongItems = (canvas, player) => {
   const W = canvas?.width || 900;
   const H = canvas?.height || 600;
-
   const amount = randomBetween(2, 3);
-
   const selectedItems = shuffle(WRONG_ITEMS).slice(0, amount);
 
-  return selectedItems.map((item, index) => ({
-    id: `wrong-${index}-${Date.now()}`,
-    icon: item.icon,
-    label: item.label,
-    x: randomBetween(W * 0.18, W * 0.82),
-    y: randomBetween(H * 0.22, H * 0.78),
-    type: "wrong",
-  }));
+  return selectedItems.map((item, index) => {
+    const pos = getSafeRandomPosition(W, H, player);
+
+    return {
+      id: `wrong-${index}-${Date.now()}`,
+      icon: item.icon,
+      label: item.label,
+      x: pos.x,
+      y: pos.y,
+      type: "wrong",
+    };
+  });
 };
 function drawWorld(
   ctx,
@@ -479,8 +504,10 @@ export default function PhilosophyGame() {
         eraIndex,
         canvas,
         nextRequired,
+        playerRef.current,
       );
-      wrongItemsRef.current = makeWrongItems(canvas);
+
+      wrongItemsRef.current = makeWrongItems(canvas, playerRef.current);
     };
 
     const movePlayer = () => {
