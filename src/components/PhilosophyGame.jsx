@@ -126,7 +126,13 @@ const randomBetween = (min, max) =>
   Math.floor(Math.random() * (max - min + 1)) + min;
 
 const shuffle = (array) => [...array].sort(() => Math.random() - 0.5);
-
+const WRONG_ITEMS = [
+  { icon: "😴", label: "Lười lắm hong học đâu" },
+  { icon: "😨", label: "Sợ triết học lắm" },
+  { icon: "🙈", label: "Thôi khỏi suy nghĩ" },
+  { icon: "📵", label: "Bỏ qua lý luận" },
+  { icon: "🫠", label: "Triết học khó quá" },
+];
 const makeCollectibles = (eraIndex, canvas, amount) => {
   const W = canvas?.width || 900;
   const H = canvas?.height || 600;
@@ -139,15 +145,33 @@ const makeCollectibles = (eraIndex, canvas, amount) => {
     x: randomBetween(W * 0.18, W * 0.82),
     y: randomBetween(H * 0.22, H * 0.78),
     taken: false,
+    type: "correct",
   }));
 };
+const makeWrongItems = (canvas) => {
+  const W = canvas?.width || 900;
+  const H = canvas?.height || 600;
 
+  const amount = randomBetween(2, 3);
+
+  const selectedItems = shuffle(WRONG_ITEMS).slice(0, amount);
+
+  return selectedItems.map((item, index) => ({
+    id: `wrong-${index}-${Date.now()}`,
+    icon: item.icon,
+    label: item.label,
+    x: randomBetween(W * 0.18, W * 0.82),
+    y: randomBetween(H * 0.22, H * 0.78),
+    type: "wrong",
+  }));
+};
 function drawWorld(
   ctx,
   canvas,
   eraIndex,
   player,
   collectibles,
+  wrongItems,
   sparks,
   moving,
   direction,
@@ -218,7 +242,31 @@ function drawWorld(
     ctx.fillText(item.label, item.x, item.y - 34 + floating);
     ctx.restore();
   });
+  wrongItems.forEach((item) => {
+    const floating = Math.sin(Date.now() * 0.004 + item.x) * 6;
 
+    ctx.save();
+
+    ctx.shadowBlur = 16;
+    ctx.shadowColor = "#ef476f";
+
+    ctx.font = "42px serif";
+    ctx.textAlign = "center";
+
+    ctx.fillText(item.icon, item.x, item.y + floating);
+
+    ctx.font = "bold 13px Inter";
+
+    ctx.fillStyle = "#ffd6df";
+    ctx.strokeStyle = "rgba(0,0,0,0.7)";
+    ctx.lineWidth = 4;
+
+    ctx.strokeText(item.label, item.x, item.y - 34 + floating);
+
+    ctx.fillText(item.label, item.x, item.y - 34 + floating);
+
+    ctx.restore();
+  });
   drawPlayer(ctx, player.x, player.y, moving, direction);
 
   ctx.font = "42px serif";
@@ -371,6 +419,7 @@ export default function PhilosophyGame() {
   const keysRef = useRef({});
   const particlesRef = useRef([]);
   const collectiblesRef = useRef([]);
+  const wrongItemsRef = useRef([]);
   const requiredCountRef = useRef(3);
   const levelCompleteRef = useRef(false);
 
@@ -384,6 +433,7 @@ export default function PhilosophyGame() {
   const [phaseBanner, setPhaseBanner] = useState(true);
   const [advisorVisible, setAdvisorVisible] = useState(true);
   const [ending, setEnding] = useState(false);
+  const [badEnding, setBadEnding] = useState(false);
 
   const era = ERAS[eraIndex];
 
@@ -430,6 +480,7 @@ export default function PhilosophyGame() {
         canvas,
         nextRequired,
       );
+      wrongItemsRef.current = makeWrongItems(canvas);
     };
 
     const movePlayer = () => {
@@ -452,6 +503,25 @@ export default function PhilosophyGame() {
     const checkCollectibles = () => {
       const player = playerRef.current;
       let justCollected = false;
+      const touchedWrongItem = wrongItemsRef.current.find((item) => {
+        const dx = player.x + 20 - item.x;
+        const dy = player.y + 30 - item.y;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+        return dist < 46;
+      });
+
+      if (touchedWrongItem && !levelCompleteRef.current) {
+        levelCompleteRef.current = true;
+        setLogs((prev) =>
+          [
+            `[${era.year}] ${touchedWrongItem.icon} Chạm phải: ${touchedWrongItem.label}.`,
+            ...prev,
+          ].slice(0, 8),
+        );
+        setBadEnding(true);
+        setEnding(true);
+        return;
+      }
 
       collectiblesRef.current = collectiblesRef.current.map((item) => {
         if (item.taken) return item;
@@ -535,6 +605,7 @@ export default function PhilosophyGame() {
         eraIndex,
         playerRef.current,
         collectiblesRef.current,
+        wrongItemsRef.current,
         particlesRef.current,
         moving,
         direction,
@@ -654,16 +725,19 @@ export default function PhilosophyGame() {
       <main className="screen-ending">
         <div className="ending-box">
           <div className="big-emoji">🏛️</div>
-          <h1>Triết học đã hình thành</h1>
+          <h1>
+            {badEnding ? "Hành trình tạm dừng" : "Triết học đã hình thành"}
+          </h1>
           <p>
             Bạn đã vượt qua các màn tư duy: thần thoại, quan sát tự nhiên, lý
             tính, đối thoại và hệ thống hóa tri thức.
           </p>
           <div className="ending-lesson">
-            <strong>Bài học:</strong>
+            <strong>{badEnding ? "Karl Marx:" : "Bài học:"}</strong>
             <span>
-              Triết học hình thành khi con người chủ động khám phá, đặt câu hỏi
-              và di chuyển từ niềm tin sang lý trí.
+              {badEnding
+                ? "Đối với khoa học, không có con đường nào bằng phẳng... chỉ có những người không sợ chồn chân mỏi gối mới có hy vọng đạt tới đỉnh cao."
+                : "Triết học Mác – Lênin hình thành khi lý luận khoa học gắn liền với thực tiễn lịch sử và phong trào cách mạng."}
             </span>
           </div>
           <div className="ending-btns">
