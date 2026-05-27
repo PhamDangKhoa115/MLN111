@@ -756,8 +756,9 @@ export default function PhilosophyGame() {
             {badEnding ? "Hành trình tạm dừng" : "Triết học đã hình thành"}
           </h1>
           <p>
-            Bạn đã vượt qua các màn tư duy: thần thoại, quan sát tự nhiên, lý
-            tính, đối thoại và hệ thống hóa tri thức.
+            {badEnding
+              ? "Sao bạn lại bỏ cuộc sớm vạyy"
+              : " Bạn đã vượt qua các màn tư duy: thần thoại, quan sát tự nhiên, lý tính, đối thoại và hệ thống hóa tri thức."}
           </p>
           <div className="ending-lesson">
             <strong>{badEnding ? "Karl Marx:" : "Bài học:"}</strong>
