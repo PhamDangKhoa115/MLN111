@@ -676,6 +676,7 @@ export default function PhilosophyGame() {
     setLogs(["🌍 Thế giới tư duy 2D đã sẵn sàng."]);
     setTutorialOpen(true);
     setEnding(false);
+    setBadEnding(false);
     setStarted(false);
   };
 
@@ -1001,6 +1002,7 @@ export default function PhilosophyGame() {
               onClick={() => {
                 setTransitionModal(null);
                 if (eraIndex >= ERAS.length - 1) {
+                  setBadEnding(false);
                   setEnding(true);
                 } else {
                   playerRef.current = { x: 120, y: 260, speed: 4 };
