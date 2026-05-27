@@ -616,7 +616,7 @@ body {
 
 .btn-primary {
   background: var(--gold);
-  color: #f8b345;
+  color: #ff8800;
   box-shadow: 0 4px 15px var(--accent-glow);
 }
 
